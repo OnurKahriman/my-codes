@@ -1,0 +1,104 @@
+using System;
+
+namespace deneme
+{
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("lütfen boyut seçiniz ?");
+            Console.WriteLine("2 boyut için 2,3 boyut için 3 yazınız");
+            int Boyut = int.Parse(Console.ReadLine());
+
+            if (Boyut == 2)
+            {
+                Double[] v1 = new double[Boyut];
+                Double[] v2 = new double[Boyut];
+                Double[] resdet = new double[Boyut];
+                for (int i = 1; i < 3; i++)
+                {
+                    Console.WriteLine("birinci vektörün " + i + ".elemanını giriniz");
+                    v1[i - 1] = Convert.ToDouble(Console.ReadLine());
+                }
+                for (int j = 1; j < 3; j++)
+                {
+                    Console.WriteLine("ikinci vektörün " + j + ".elemanını giriniz");
+                    v2[j - 1] = Convert.ToDouble(Console.ReadLine());
+                }
+                resdet = det2(v1, v2);
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                double toplam = 0;
+                for (int i = 0; i < 2; i++)
+                {
+                    //Console.WriteLine(resdet[i]);
+                    toplam = toplam + resdet[i];
+                }
+                Console.WriteLine("determinant: {0}", toplam);
+
+            }
+            else if (Boyut == 3)
+            {
+                Double[] v1 = new double[Boyut];
+                Double[] v2 = new double[Boyut];
+                Double[] v3 = new double[Boyut];
+                Double[] resdet = new double[Boyut];
+                for (int i = 1; i <= 3; i++)
+                {
+                    Console.WriteLine("birinci vektörün " + i + ".elemanını giriniz");
+                    v1[i - 1] = Convert.ToDouble(Console.ReadLine());
+                }
+                for (int j = 1; j <= 3; j++)
+                {
+                    Console.WriteLine("ikinci vektörün " + j + ".elemanını giriniz");
+                    v2[j - 1] = Convert.ToDouble(Console.ReadLine());
+                }
+                for (int k = 1; k <= 3; k++)
+                {
+                    Console.WriteLine("ücüncü vektörün " + k + ".elemanını giriniz");
+                    v3[k - 1] = Convert.ToDouble(Console.ReadLine());
+                }
+                Console.WriteLine("1.Vektör {0},{1},{2} ",v1[0], v1[1], v1[2]);
+                Console.WriteLine("2.Vektör {0},{1},{2} ", v2[0], v2[1], v2[2]);
+                Console.WriteLine("3.Vektör {0},{1},{2} ", v3[0], v3[1], v3[2]);
+
+                resdet = det3(v1, v2, v3);
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                double toplam = 0;
+                for ( int i = 0; i < 3; i++)
+                {  
+                    //Console.WriteLine(resdet[i]);
+                    toplam = toplam + resdet[i];
+
+                }
+                Console.WriteLine("determinant: {0}", toplam);
+
+            }
+                //determinant
+               
+                Double[] det2(Double[] a, Double[] b)
+                {
+                    Double[] deter2 = new Double[2];
+                    deter2[0] = (a[0] * b[1]) - (b[0] * a[1]);
+                    return deter2;   
+                }
+
+
+                Double[] det3(Double[] a, Double[] b, Double[] c)
+                {
+                     Double[] deter3 = new Double[3];
+                     deter3[0] = a[0]*((b[1] * c[2]) - (b[2] * c[1]));
+                     deter3[1] =-a[1]*((b[0] * c[2]) - (b[2] * c[0]));
+                     deter3[2] = a[2]*((b[0] * c[1]) - (b[1] * c[0]));
+                
+                return deter3;
+                }
+            
+        }
+
+        
+    }
+}
